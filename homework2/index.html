@@ -5,10 +5,19 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Homework1</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
+	<section class="rewiews">
+		<h1>Отзывы</h1>
+		<select id="productSelect">
+			<option value="">Выберите продукт</option>
+		</select>
+		<textarea id="reviewInput" class="text" rows="4" cols="50" placeholder="Напишите отзыв"></textarea>
+		<button type="button" id="addReview">Отправить отзыв</button>
+		<div id="reviewList"></div>
+	</section>
 
 	<script src="app.js"></script>
 </body>
