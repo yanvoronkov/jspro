@@ -156,7 +156,7 @@ function filterReviews() {
 	if (selectedProduct) {
 		const filteredReviews = initialData
 			.find((product) => product.product === selectedProduct)
-			.reviews.map((review) => `<p class="review">${review.text}</p>`);
+			.reviews.map((rev) => `<p class="review">${rev.text}</p>`);
 
 		reviewList.innerHTML = filteredReviews.join("");
 	} else {
@@ -168,6 +168,11 @@ function addReview() {
 	const reviewInput = document.getElementById("reviewInput");
 	const selectedProduct = document.getElementById("productSelect").value;
 	const reviewText = reviewInput.value.trim();
+
+	//добавь максимальное значение id в пределах выбранного продукта, чтобы создать id нового отзыва
+	const maxId = initialData
+		.find((product) => product.product === selectedProduct)
+		.reviews.reduce((max, rev) => Math.max(max, rev.id), 0);
 
 	if (selectedProduct && reviewText.length >= 5 && reviewText.length <= 500) {
 		const newReview = {
